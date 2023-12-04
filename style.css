@@ -1,0 +1,238 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap');
+
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: 'Kanit', sans-serif;;
+}
+
+body{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   background: #000000;
+}
+
+::selection{
+   color: #fff;
+   background: #06283d;
+}
+
+.wrapper{
+   width: 400px;
+   background: #fff;
+   border-radius: 7px;
+   box-shadow: 0px 0px 15px 5px rgb(143, 142, 142);
+}
+
+.wrapper header{
+   display: flex;
+   font-size: 21px;
+   font-weight: 500;
+   color: #06283d;
+   padding: 16px 15px;
+   align-items: center;
+   border-bottom: 1px solid #ccc;
+}
+
+header i{
+   font-size: 1.5em;
+   cursor: pointer;
+   margin-right: 72px;
+}
+header i:hover{
+   color: rgb(108, 108, 108);
+}
+
+.wrapper .active header i{
+   margin-left: 5px;
+   font-size: 30px;
+
+}
+
+.wrapper .input-part{
+   margin: 20px 25px 30px;
+
+}
+
+.wrapper .active .input-part{
+   display: none;
+}
+
+.input-part .info-txt{
+   font-size: 17px;
+   text-align: center;
+   padding: 12px 10px;
+   margin-bottom: 15px;
+   display: none;
+}
+
+.input-part .info-txt.error{
+   color: #000;
+   display: block;
+   background: #f87171;
+   border: 1px solid #000;
+}
+
+.input-part .info-txt.pending{
+   color: #000;
+   display: block;
+   background: #0ea5e9;
+   border: 1px solid #000;
+}
+
+.input-part :where(input, button){
+   width: 100%;
+   height: 55px;
+   border: none;
+   outline: none;
+   font-size: 18px;
+   border-radius: 7px;
+}
+
+.input-part input{
+   text-align: center;
+   padding: 0 15px;
+   border: 1px solid #ccc;
+}
+
+.input-part input:is(:focus, :valid){
+   border: 2px solid #06283d;
+}
+
+.input-part input::placeholder{
+   color: #c7c6c6;
+   font-weight: 300;
+}
+
+.input-part .separator{
+   height: 1px;
+   width: 100%;
+   margin: 25px 0;
+   background: #ccc;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.separator::before{
+   content: 'or';
+   color: #b3b3b3;
+   font-size: 19px;
+   font-weight: 300;
+   padding: 0 15px;
+   background: #fff;
+}
+
+.input-part button{
+   color: #fff;
+   background: #06283d;
+   cursor: pointer;
+   transition: 0.2s ease-in-out;
+}
+
+.input-part button:hover{
+   background: #3b4b63;
+}
+
+.wrapper .weather-part{
+   margin: 30px 0 0;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   display: none;
+}
+
+.wrapper.active .weather-part{
+   display: flex;
+}
+
+.weather-part img{
+   max-width: 120px;
+}
+
+.weather-part .temp{
+   display: flex;
+   font-weight: 500;
+   font-size: 72px;
+}
+
+.weather-part .temp .deg{
+   font-size: 40px;
+   display: block;
+   margin: 10px 5px 0 0;
+}
+
+.weather-part .temp .numb{
+   font-weight: 600;
+}
+
+.weather-part .weather{
+   font-size: 21px;
+   text-align: center;
+   margin: -5px 20px 15px;
+}
+
+.weather-part .location{
+   display: flex;
+   font-size: 19px;
+   padding: 0 20px;
+   margin-bottom: 30px;
+   text-align: center;
+   align-items: flex-start;
+}
+
+.location i{
+   font-size: 22px;
+   margin: 4px 5px 0 0;
+}
+
+.weather-part .bottom-details{
+   display: flex;
+   width: 100%;
+   padding: 15px 0;
+   align-items: center;
+   justify-content: center;
+}
+
+.column i{
+   color: #2aa6ff;
+   font-size: 40px;
+   margin-left: 16px;
+}
+
+.column.humidity{
+   border-left: 1px solid #ccc;
+}
+
+.column .details{
+   margin-left: 27px;
+   margin-right: 25px;
+}
+
+.details .temp, .humidity span{
+   font-size: 18px;
+   font-weight: 500;
+   margin-top: -3px;
+}
+
+.details .temp .deg{
+   margin: 0;
+   font-size: 20px;
+   padding: 0 2px 0 1px;
+}
+
+.column .details p{
+   font-size: 14px;
+   margin-top: -6px;
+   margin-left: 0;
+}
+
+.humidity i{
+   font-size: 37px;
+   margin-left: 17px;
+}
