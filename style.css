@@ -1,68 +1,78 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap');
 
-*{
-   box-sizing: border-box;
+* {
    margin: 0;
    padding: 0;
-   font-family: 'Kanit', sans-serif;;
+   box-sizing: border-box;
+   font-family: 'Kanit', sans-serif;
+
+   /* following method is used to debug the css layout */
+   /* outline: 1px solid red; */
 }
 
-body{
+body {
    display: flex;
    align-items: center;
    justify-content: center;
+
    min-height: 100vh;
-   background: #000000;
+
+   background: linear-gradient(to left, #FFF4CF, #FFB200);
 }
 
-::selection{
-   color: #fff;
-   background: #06283d;
-}
-
-.wrapper{
-   width: 400px;
-   background: #fff;
-   border-radius: 7px;
-   box-shadow: 0px 0px 15px 5px rgb(143, 142, 142);
-}
-
-.wrapper header{
-   display: flex;
-   font-size: 21px;
-   font-weight: 500;
-   color: #06283d;
-   padding: 16px 15px;
-   align-items: center;
-   border-bottom: 1px solid #ccc;
-}
-
-header i{
-   font-size: 1.5em;
+/* top bar styling */
+#backButton {
+   background: none;
+   border: none;
+   transform: translateY(2.5px);
+   margin-left: 20px;
    cursor: pointer;
-   margin-right: 72px;
-}
-header i:hover{
-   color: rgb(108, 108, 108);
 }
 
-.wrapper .active header i{
-   margin-left: 5px;
-   font-size: 30px;
+.wrapper {
+   width: 400px;
+   background: linear-gradient(to right, #FFF4CF, #FFB200);
 
+   box-shadow: 0px 0px 200px 5px #FFB200;
+
+   padding-bottom: 10px;
 }
 
-.wrapper .input-part{
+.wrapper header {
+   display: flex;
+   align-items: center;
+   justify-content: left;
+
+   gap: 70px;
+
+   font-size: 21px;
+   font-weight: 600;
+
+   color: black;
+   background: linear-gradient(to left, #FFF4CF, #FFB200);
+
+   padding: 20px 0;
+}
+
+.content p {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-block: 5px;
+   font-size: 16px;
+   font-weight: 300;
+}
+
+.wrapper .input-part {
    margin: 20px 25px 30px;
-
 }
 
-.wrapper .active .input-part{
+.wrapper .active .input-part {
    display: none;
 }
 
-.input-part .info-txt{
+/* input part styling */
+.input-part .info-txt {
    font-size: 17px;
    text-align: center;
    padding: 12px 10px;
@@ -70,169 +80,195 @@ header i:hover{
    display: none;
 }
 
-.input-part .info-txt.error{
-   color: #000;
+.input-part .info-txt.error {
+   color: white;
    display: block;
-   background: #f87171;
-   border: 1px solid #000;
+   background: rgb(241, 55, 23);
+   border: none;
+   border-radius: 5px;
+   font-weight: 300;
 }
 
-.input-part .info-txt.pending{
-   color: #000;
+.input-part .info-txt.pending {
+   color: white;
    display: block;
-   background: #0ea5e9;
-   border: 1px solid #000;
+   background: #35a306;
+   border: none;
+   border-radius: 5px;
+   font-weight: 300;
 }
 
-.input-part :where(input, button){
+.input-part :where(input, button) {
    width: 100%;
-   height: 55px;
+   height: 50px;
    border: none;
    outline: none;
    font-size: 18px;
-   border-radius: 7px;
+   border-radius: 5px;
 }
 
-.input-part input{
+.input-part input {
    text-align: center;
    padding: 0 15px;
-   border: 1px solid #ccc;
 }
 
-.input-part input:is(:focus, :valid){
+.input-part input:is(:focus, :valid) {
    border: 2px solid #06283d;
 }
 
-.input-part input::placeholder{
-   color: #c7c6c6;
+.input-part input::placeholder {
+   color: #c6c6c6;
    font-weight: 300;
 }
 
-.input-part .separator{
-   height: 1px;
-   width: 100%;
-   margin: 25px 0;
-   background: #ccc;
-   position: relative;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-
-.separator::before{
-   content: 'or';
-   color: #b3b3b3;
-   font-size: 19px;
-   font-weight: 300;
-   padding: 0 15px;
-   background: #fff;
-}
-
-.input-part button{
+.input-part button {
    color: #fff;
    background: #06283d;
    cursor: pointer;
-   transition: 0.2s ease-in-out;
+   transition: 0.2s ease;
 }
 
-.input-part button:hover{
+.input-part button:hover {
    background: #3b4b63;
 }
 
-.wrapper .weather-part{
-   margin: 30px 0 0;
+.input-part button:active {
+   transform: translateY(2px);
+}
+
+/* weather part styling */
+.wrapper .weather-part {
+   margin: 25px;
+
    align-items: center;
    justify-content: center;
+
    flex-direction: column;
+
+   gap: 3px;
+
    display: none;
 }
 
-.wrapper.active .weather-part{
+.wrapper.active .weather-part {
    display: flex;
 }
 
-.weather-part img{
-   max-width: 120px;
+.weather-part img {
+   max-width: 130px;
+   margin: 5px 0;
 }
 
-.weather-part .temp{
+.weather-part .temp {
    display: flex;
    font-weight: 500;
-   font-size: 72px;
+   font-size: 60px;
 }
 
-.weather-part .temp .deg{
+.weather-part .temp .deg {
    font-size: 40px;
    display: block;
-   margin: 10px 5px 0 0;
+   margin: 4px 3px;
 }
 
-.weather-part .temp .numb{
-   font-weight: 600;
+.weather-part .temp .numb {
+   font-weight: 500;
 }
 
-.weather-part .weather{
-   font-size: 21px;
+.weather-part .weather {
+   font-size: 20px;
+   font-weight: 300;
+
    text-align: center;
-   margin: -5px 20px 15px;
+
+   margin: -15px 20px 7px;
 }
 
-.weather-part .location{
+.weather-part .location {
    display: flex;
-   font-size: 19px;
-   padding: 0 20px;
-   margin-bottom: 30px;
-   text-align: center;
    align-items: flex-start;
+
+   gap: 3px;
+
+   text-align: center;
+
+   font-size: 18px;
+
+   padding: 0 15px 0 0;
+   margin-bottom: 25px;
 }
 
-.location i{
-   font-size: 22px;
-   margin: 4px 5px 0 0;
+.weather-part span {
+   margin-top: 1.3px;
 }
 
-.weather-part .bottom-details{
+/* secondary weather details */
+.weather-part .bottom-details {
    display: flex;
+   justify-content: center;
+
+   flex-wrap: wrap;
+
+   gap: 10px;
+
    width: 100%;
-   padding: 15px 0;
-   align-items: center;
+   padding: 10px 0;
+}
+
+.column {
+   display: flex;
+   flex-direction: row;
    justify-content: center;
 }
 
-.column i{
-   color: #2aa6ff;
+.column i {
+   color: black;
    font-size: 40px;
-   margin-left: 16px;
+
+   margin-right: 15px;
+
+   transform: translateY(6px);
 }
 
-.column.humidity{
-   border-left: 1px solid #ccc;
+.humidity i {
+   font-size: 35px;
+   transform: translateY(8px);
 }
 
-.column .details{
-   margin-left: 27px;
+.column .details {
    margin-right: 25px;
 }
 
-.details .temp, .humidity span{
-   font-size: 18px;
-   font-weight: 500;
-   margin-top: -3px;
+.details .temp,
+.humidity span {
+   font-size: 15px;
+   font-weight: 400;
+
+   gap: 1px;
 }
 
-.details .temp .deg{
+.column .details p {
+   font-size: 15px;
+   font-weight: 400;
    margin: 0;
-   font-size: 20px;
-   padding: 0 2px 0 1px;
 }
 
-.column .details p{
-   font-size: 14px;
-   margin-top: -6px;
-   margin-left: 0;
-}
+/* responsive for mobile screens */
 
-.humidity i{
-   font-size: 37px;
-   margin-left: 17px;
+@media screen and (min-width: 320px) and (max-width: 430px) {
+   .wrapper {
+      width: 90%;
+   }
+
+   .wrapper header {
+      justify-content: center;
+   }
+
+   #backButton {
+      display: none;
+   }
+
+   .input-part input::placeholder {
+      font-size: 15px;
+   }
 }
