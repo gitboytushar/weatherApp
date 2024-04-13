@@ -95,21 +95,23 @@ function weatherDetails (info) {
       wIcon.src = 'assets/unknown weather.png' // Default or unknown weather
     }
 
-    weatherPart.querySelector('.temp .numb').innerText = Math.round(
-      Math.floor(temp) - 273.15
-    )
-    weatherPart.querySelector('.weather').innerText = description
-    weatherPart.querySelector(
-      '.location span'
-    ).innerText = `${city}, ${country}`
-    weatherPart.querySelector('.temp .numb-2').innerText = Math.round(
-      Math.floor(feels_like) - 273.15
-    )
-    weatherPart.querySelector('.humidity span').innerText = `${humidity}%`
-    infoTxt.classList.remove('pending', 'error')
-    infoTxt.innerText = ''
-    inputField.value = ''
-    wrapper.classList.add('active')
+   weatherPart.querySelector('.temp .numb').innerText = Math.round(Math.floor(temp) - 273.15)
+     
+   weatherPart.querySelector('.weather').innerText = description
+    
+   weatherPart.querySelector('.location span').innerText = `${city}, ${country}`
+    
+   weatherPart.querySelector('.temp .numb-2').innerText = Math.round(Math.floor(feels_like) - 273.15)
+   
+   weatherPart.querySelector('.humidity span').innerText = `${humidity}%`
+     
+   infoTxt.classList.remove('pending', 'error')
+   
+   infoTxt.innerText = ''
+     
+   inputField.value = ''
+     
+   wrapper.classList.add('active')
   }
 }
 
