@@ -23,11 +23,13 @@ locationBtn.addEventListener('click', () => {
   }
 })
 
+// normally this request is passed to api
 function requestApi (city) {
-  api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units-metric&appid=ee62aa67b88a06d0cee81a624d3d0122`
+  api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ee62aa67b88a06d0cee81a624d3d0122`
   fetchData()
 }
 
+// request through device location
 function onSuccess (postition) {
   const { latitude, longitude } = postition.coords
   api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=ee62aa67b88a06d0cee81a624d3d0122`
@@ -95,23 +97,24 @@ function weatherDetails (info) {
       wIcon.src = 'assets/unknown weather.png' // Default or unknown weather
     }
 
-   weatherPart.querySelector('.temp .numb').innerText = Math.round(Math.floor(temp) - 273.15)
-     
-   weatherPart.querySelector('.weather').innerText = description
+    // temp is returned in celcius from the api
+    weatherPart.querySelector('.temp .numb').innerText = Math.round(Math.floor(temp))
+
+    weatherPart.querySelector('.temp .numb-2').innerText = Math.round(Math.floor(feels_like))
     
-   weatherPart.querySelector('.location span').innerText = `${city}, ${country}`
-    
-   weatherPart.querySelector('.temp .numb-2').innerText = Math.round(Math.floor(feels_like) - 273.15)
-   
-   weatherPart.querySelector('.humidity span').innerText = `${humidity}%`
-     
-   infoTxt.classList.remove('pending', 'error')
-   
-   infoTxt.innerText = ''
-     
-   inputField.value = ''
-     
-   wrapper.classList.add('active')
+    weatherPart.querySelector('.weather').innerText = description
+
+    weatherPart.querySelector('.location span').innerText = `${city}, ${country}`
+
+    weatherPart.querySelector('.humidity span').innerText = `${humidity}%`
+
+    infoTxt.classList.remove('pending', 'error')
+
+    infoTxt.innerText = ''
+
+    inputField.value = ''
+
+    wrapper.classList.add('active')
   }
 }
 
