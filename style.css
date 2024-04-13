@@ -122,18 +122,22 @@ body {
 }
 
 .input-part button {
-   color: #fff;
+   color: bisque;
    background: #06283d;
    cursor: pointer;
-   transition: 0.2s ease;
+   font-weight: 300;
+   transition: background 0.2s ease-in;
 }
 
-.input-part button:hover {
-   background: #3b4b63;
-}
+/* works only in non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+   .input-part button:hover {
+      background: #28313e;
+   }
 
-.input-part button:active {
-   transform: translateY(2px);
+   .input-part button:active {
+      transform: translateY(1px);
+   }
 }
 
 /* weather part styling */
